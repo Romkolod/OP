@@ -3,9 +3,9 @@
 
 using namespace std;
 
-const int MAX_VERTICES = 100;
+const int max_vertices = 100;
 
-void create_matrix(int matrix[][MAX_VERTICES], int num_vertices, ifstream& in_file) {
+void create_matrix(int matrix[][max_vertices], int num_vertices, ifstream& in_file) {
     int vertex1, vertex2;
     while (in_file >> vertex1 >> vertex2) {
         matrix[vertex1][vertex2] = 1;
@@ -13,7 +13,7 @@ void create_matrix(int matrix[][MAX_VERTICES], int num_vertices, ifstream& in_fi
     }
 }
 
-void write_matrix(int matrix[][MAX_VERTICES], int num_vertices, ofstream& out_file) {
+void write_matrix(int matrix[][max_vertices], int num_vertices, ofstream& out_file) {
     for (int i = 0; i < num_vertices; i++) {
         for (int j = 0; j < num_vertices; j++) {
             out_file << matrix[i][j] << " ";
@@ -22,7 +22,7 @@ void write_matrix(int matrix[][MAX_VERTICES], int num_vertices, ofstream& out_fi
     }
 }
 
-void create_list(int list[][MAX_VERTICES], int num_vertices, int matrix[][MAX_VERTICES]) {
+void create_list(int list[][max_vertices], int num_vertices, int matrix[][max_vertices]) {
     for (int i = 0; i < num_vertices; i++) {
         int count = 0;
         for (int j = 0; j < num_vertices; j++) {
@@ -34,7 +34,7 @@ void create_list(int list[][MAX_VERTICES], int num_vertices, int matrix[][MAX_VE
     }
 }
 
-void write_list(int list[][MAX_VERTICES], int num_vertices, ofstream& out_file) {
+void write_list(int list[][max_vertices], int num_vertices, ofstream& out_file) {
     for (int i = 0; i < num_vertices; i++) {
         out_file << i << ": ";
         for (int j = 0; j < num_vertices; j++) {
@@ -46,7 +46,7 @@ void write_list(int list[][MAX_VERTICES], int num_vertices, ofstream& out_file) 
     }
 }
 
-void create_sequence(int sequence[][2], int& num_edges, int matrix[][MAX_VERTICES], int num_vertices) {
+void create_sequence(int sequence[][2], int& num_edges, int matrix[][max_vertices], int num_vertices) {
     num_edges = 0;
     for (int i = 0; i < num_vertices; i++) {
         for (int j = i + 1; j < num_vertices; j++) {
@@ -67,9 +67,9 @@ void write_sequence(int sequence[][2], int num_edges, ofstream& out_file) {
 
 int main() {
     int num_vertices;
-    int matrix[MAX_VERTICES][MAX_VERTICES] = { 0 };
-    int list[MAX_VERTICES][MAX_VERTICES] = { -1 };
-    int sequence[MAX_VERTICES][2];
+    int matrix[max_vertices][max_vertices] = { 0 };
+    int list[max_vertices][max_vertices] = { -1 };
+    int sequence[max_vertices][2];
     int num_edges = 0;
 
     ifstream in_file("graph.txt");
