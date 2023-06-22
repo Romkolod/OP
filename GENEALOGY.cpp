@@ -3,9 +3,9 @@
 
 using namespace std;
 
-const int MAXN = 1000;
+const int maxn = 1000;
 
-int parent[MAXN];
+int parent[maxn];
 
 int find(int x) {
     if (parent[x] == x) return x;
